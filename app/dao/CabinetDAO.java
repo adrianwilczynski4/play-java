@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface CabinetDAO {
 
-    Cabinet getCabinetById(int id);//TODO
+    Cabinet getCabinetById(int id);
 
-    List<Cabinet> getCabinetsList();//TODO
-    void AddCabinet(Cabinet cabinet);//TODO
-    void RemoveCabinet(int cabinetId);//TODO
-    void RemoveAllCabinets();//TODO
+    List<Cabinet> getCabinetsList();
+    void AddCabinet(Cabinet cabinet);
+    void RemoveCabinet(int cabinetId);
+    void RemoveAllCabinets();
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PossibleVisitsDAO {
 
-    List<Room> getAllPossibleVisitsForDoctor(int Doctorsid);//TODO
+    List<PossibleVisits> getAllPossibleVisitsForDoctor(int Doctorsid);//TODO
     void addPossibleVisit (PossibleVisits possibleVisit);//TODO
     void removePossibleVisit(int visitId);//TODO
 

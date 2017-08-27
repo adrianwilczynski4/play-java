@@ -22,6 +22,7 @@ public class CabinetDAOImpl  implements CabinetDAO{
 
         Query query = em.createNativeQuery("SELECT * from Cabinet  where id=?1 ", Cabinet.class);
 
+
         query.setParameter(1,id);
 
         Cabinet result = null;
@@ -70,8 +71,8 @@ public class CabinetDAOImpl  implements CabinetDAO{
     public void RemoveCabinet(int cabinetId) {
 
         EntityManager em = JPA.em("default");
-        Query query = em.createNativeQuery("DELETE FROM CABINET WHERE id =?1");
-        query.setParameter(1,"id");
+        Query query = em.createNativeQuery("DELETE FROM Cabinet WHERE id =?1");
+        query.setParameter(1,cabinetId);
         em.getTransaction().begin();
         int result = query.executeUpdate();//TODO
         em.getTransaction().commit();
@@ -82,7 +83,7 @@ public class CabinetDAOImpl  implements CabinetDAO{
 
     public void RemoveAllCabinets() {
         EntityManager em = JPA.em("default");
-        Query query = em.createNativeQuery("DELETE FROM CABINET");
+        Query query = em.createNativeQuery("DELETE FROM Cabinet");
 
         em.getTransaction().begin();
         int result = query.executeUpdate();//TODO
