@@ -1,5 +1,11 @@
 package model;
 import javax.persistence.*;
+
+import play.data.validation.Constraints;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 /**
  * Created by adrian on 07.06.17.
  */

@@ -18,4 +18,6 @@ public interface RoleService {
     void removeAllRoles();// TODO
 
     UserRole getRoleByName(String roleName);//TODO
+
+    UserRole getRoleByID(Long roleID);
 }

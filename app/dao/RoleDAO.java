@@ -9,14 +9,16 @@ import java.util.List;
  */
 public interface RoleDAO {
 
-    void addRole(UserRole role);//TODO
-
-    List<UserRole> getRoleList();//TODO
+    void addRole(UserRole role);
+    void editRole(UserRole role);
+    List<UserRole> getRoleList();
     List <UserRole> getRoleByAuthorisationDegree(int degree);
 
-    void removeRole(int roleId); //TODO
+    void removeRole(int roleId);
 
-    UserRole getRoleByName(String roleName);//TODO
+    UserRole getRoleByName(String roleName);
+
+    UserRole getRoleById(Long roleID);
 
 
 }

@@ -9,19 +9,19 @@ import javax.persistence.*;
 /**
  * Created by adrian on 07.06.17.
  */
-@Entity
-@Table(name="users")
+//@Entity
+//@Table(name="users")
 
 
 public class Users {
 
 
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+       // @Id
+       // @GeneratedValue(strategy = GenerationType.AUTO)
         int id;
 
-        @Column(name="firstname", nullable=false)
+      //  @Column(name="firstname", nullable=false)
         private String firstname;
         private String lastname;
         private String email;
@@ -33,12 +33,12 @@ public class Users {
         private String pesel;
         private boolean enabled;
 
-        @ManyToMany(fetch = FetchType.EAGER)
-        private Set <Specialization> specialization = new HashSet<Specialization>();
+       // @ManyToMany(fetch = FetchType.LAZY)
+      ///  private Set <Specialization> specialization = new HashSet<Specialization>();
 
-        @ManyToMany(fetch = FetchType.EAGER)
+     //   @ManyToOne(fetch = FetchType.LAZY)
 
-        private Set<UserRole> userRole = new HashSet<UserRole>(0);
+     //   private Set<UserRole> userRole = new HashSet<UserRole>(0);
 
 
         public int getId() {
@@ -131,4 +131,11 @@ public class Users {
         }
 
 
-    }
+     //   public Set<UserRole> getUserRole() {
+       //         return userRole;
+      //  }
+
+     //   public void setUserRole(Set<UserRole> userRole) {
+  //              this.userRole = userRole;
+    //    }
+}

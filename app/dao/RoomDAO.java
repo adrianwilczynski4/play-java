@@ -15,5 +15,5 @@ public interface RoomDAO {
     List<Room> getAllRoomsList(); //TODO
     void AddRoom(Room room); //TODO
     void editRoom(Room room);//TODO
-    void removeRooms(Room room); //TODO
+    void removeRoom(Room room); //TODO
 }

@@ -3,6 +3,7 @@ package dao.Impl;
 import dao.CabinetDAO;
 import model.Cabinet;
  import play.db.jpa.JPA;
+import play.db.jpa.Transactional;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class CabinetDAOImpl  implements CabinetDAO{
 
-
+    @Transactional(readOnly = true)
     @Override
     public Cabinet getCabinetById(int id) {
         EntityManager em = JPA.em("default"); // TODO why default?
@@ -39,7 +40,8 @@ public class CabinetDAOImpl  implements CabinetDAO{
 
 
     }
-
+    @Override
+    @Transactional(readOnly = true)
     public List<Cabinet> getCabinetsList() {
         EntityManager em = JPA.em("default");
 
@@ -56,38 +58,36 @@ public class CabinetDAOImpl  implements CabinetDAO{
         em.close();
         return result;
     }
-
-
+    @Override
+    @Transactional
     public void AddCabinet(Cabinet cabinet) {
 
         EntityManager em = JPA.em("default");
-        em.getTransaction().begin();
+
         em.persist(cabinet);
-        em.getTransaction().commit();
+
         em.close(); // TODO INSERT RESULT
     }
-
-
+    @Override
+    @Transactional
     public void RemoveCabinet(int cabinetId) {
 
         EntityManager em = JPA.em("default");
-        Query query = em.createNativeQuery("DELETE FROM Cabinet WHERE id =?1");
-        query.setParameter(1,cabinetId);
-        em.getTransaction().begin();
-        int result = query.executeUpdate();//TODO
-        em.getTransaction().commit();
+        em.remove(em.find(Cabinet.class,cabinetId));
+
+
         em.close();
 
     }
-
-
+    @Override
+    @Transactional
     public void RemoveAllCabinets() {
         EntityManager em = JPA.em("default");
         Query query = em.createNativeQuery("DELETE FROM Cabinet");
 
-        em.getTransaction().begin();
+
         int result = query.executeUpdate();//TODO
-        em.getTransaction().commit();
+
         em.close();
 
     }

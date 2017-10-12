@@ -10,18 +10,21 @@ import java.util.List;
  * Created by adrian on 02.07.17.
  */
 public interface UserDetailsDAO {
+    boolean addUser(Users user);
 
-    void addUser(Users user);
+    boolean editUser(Users user);
 
-    void editUser(Users user);
+    boolean deleteUser(Users user);
 
-    void deleteUser(Users user);
 
-    List<Users> getUsersListByRole(int RoleId);
+    Integer deleteAllUsersButFor(Long userId);
+    List<Users> getAllUsersList();
 
-    Users getUserById(int UserId);
+    List<Users> getUsersListByRole(String RoleName);
 
-    UserRole gerUserRole(int UserId);
+    Users getUserById(Long UserId);
+
+    Users getUserWithRole(Long UserId);
 
     Users getUserByEmail(String email);
 

@@ -1,4 +1,5 @@
 package model;
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import java.util.Date;
 import java.sql.Time;
@@ -13,7 +14,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
-
+    @Nullable
     private int DoctorsId;
     @ManyToOne
     private Cabinet Roomnr;
